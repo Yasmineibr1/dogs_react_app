@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './index.scss';  
 
 function DogGallery() {
   const [dogImages, setDogImages] = useState([]);
@@ -10,11 +11,13 @@ function DogGallery() {
   }, []);
 
   return (
-    <div>
+    <div className="dog-gallery">
       <h2>Dog Gallery</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px' }}>
+      <div className="grid-container">
         {dogImages.map((image, index) => (
-          <img key={index} src={image} alt="Dog" style={{ width: '100%' }} />
+          <div className="card" key={index}>
+            <img src={image} alt="Dog" className="dog-image" />
+          </div>
         ))}
       </div>
     </div>
