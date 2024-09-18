@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './index.scss';  // Assure-toi d'importer le fichier SCSS
 
 function Home() {
   const [randomDog, setRandomDog] = useState('');
@@ -10,9 +11,13 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <h1>Welcome to Doggo World</h1>
-      {randomDog && <img src={randomDog} alt="Random Dog" style={{ width: '100%' }} />}
+    <div className="home-page">
+      <h1 className="home-title">Welcome to Doggo World</h1>
+      {randomDog && (
+        <div className="image-container">
+          <img src={randomDog} alt="Random Dog" className="random-dog-image" />
+        </div>
+      )}
     </div>
   );
 }

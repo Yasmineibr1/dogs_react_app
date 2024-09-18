@@ -1,9 +1,29 @@
 
 @mixin border-radius($radius) {
-    border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition($property, $duration, $timing-function) {
+  transition: $property $duration $timing-function;
+}
+
+// Mixin pour les media queries
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (max-width: $breakpoint-xl) {
+      @content;
+    }
   }
-  
-  @mixin transition($property, $duration, $timing-function) {
-    transition: $property $duration $timing-function;
-  }
-  
+}

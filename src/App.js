@@ -3,21 +3,14 @@ import './App.scss';
 import Home from './components/Home';
 import DogGallery from './components/Dog gallery';
 import DogBreedSearch from './components/Dog breed search';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Navbar from './components/Navbar/navbar';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/gallery">Dog Gallery</Link></li>
-            <li><Link to="/breedsearch">Breed Search</Link></li>
-         
-          </ul>
-        </nav>
-
+      <Navbar /> 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<DogGallery />} />
