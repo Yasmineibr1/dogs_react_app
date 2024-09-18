@@ -2,9 +2,9 @@
 
 ## Description
 
-Dogs World is a React app that lets users explore dog images from different breeds. It includes a search feature for specific breeds, a gallery of random dog images, and is fully responsive across devices.
-## Prerequisites
+Dogs World is a React app that lets users explore dog images from different breeds. It includes a search feature for specific breeds, a gallery of random dog images, and is fully responsive across devices.The application is styled using SCSS/Sass for enhanced styling capabilities.
 
+## Prerequisites
 Before you start, make sure you have the following installed on your local machine:
 
 - [Node.js](https://nodejs.org/) (includes npm)
