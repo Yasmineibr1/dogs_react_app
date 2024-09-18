@@ -2,79 +2,77 @@
 @import '../../styles/mixins';
 @import '../../styles/queries';
 
-.navbar {
+
+
+nav {
   background-color: $primary-color;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  position: relative;
 
-  .navbar-logo a {
-    color: #fff;
-    font-size: 1.5rem;
+  .logo {
+    img {
+      width: 190px; 
+      height: auto; 
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+
+    @media (max-width: 768px) {
+      display: none; /* the menu is not displayed for small screens*/
+    }
+  }
+
+  .nav-links a {
+    color: white; 
     text-decoration: none;
-    font-weight: bold;
-  }
-
-  .navbar-menu {
-    display: none;
-    background-color: $primary-color;
     padding: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: #fff;
-    @include respond-to(sm) {
-      display: block;
+
+    &:hover {
+      color: $secondary-color; 
     }
   }
 
-  .navbar-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    transition: max-height 0.3s ease;
+  .hamburger-menu {
+     display: none; /* hamburger menu not displayed on large/big screens */
 
-    li {
-      margin: 0 15px;
+    @media (max-width: 768px) {
+      display: block; /* hamburger displayed for small screens*/
+      cursor: pointer;
+    }
 
-      a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 1rem;
-        padding: 5px 10px;
-        transition: background-color 0.3s ease, color 0.3s ease;
-
-        &:hover {
-          background-color: $secondary-color;
-          color: #fff;
-          border-radius: 4px;
-        }
-      }
+    .line {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
     }
   }
 
-  .navbar-links.active {
-    display: flex;
-    flex-direction: column;
+  .mobile-menu {
+    display: none; 
     position: absolute;
     top: 60px;
-    right: 10px;
+    left: 0;
+    width: 100%;
     background-color: $primary-color;
-    padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-}
+    flex-direction: column;
 
-@include respond-to(sm) {
-  .navbar-links {
-    display: none; // Cacher les liens pour les petits écrans par défaut
-  }
+    &.open {
+      display: flex; /* display the menu items when the mobile menu is open */
+    }
 
-  .navbar-menu.active + .navbar-links {
-    display: flex; // Afficher les liens lorsque le menu est ouvert
+    a {
+      padding: 15px;
+      text-align: center;
+      color: white;
+      border-bottom: 1px solid white;
+    }
   }
 }

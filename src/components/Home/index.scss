@@ -6,21 +6,22 @@
   text-align: center;
   padding: 20px;
 
+  
   .home-title {
     font-size: 3rem;
     color: $primary-color;
     margin-bottom: 20px;
-
-    @include transition(color, 0.3s, ease-in-out);
   }
 
+  /* image container */
   .image-container {
-    max-width: 600px;
+    max-width: 800px; /* for big screens*/
     margin: 0 auto;
     border: 1px solid $secondary-color;
     @include border-radius(8px);
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 
     .random-dog-image {
       width: 100%;
@@ -28,6 +29,7 @@
       object-fit: cover;
     }
 
+   
     &:hover {
       transform: scale(1.05);
       transition: transform 0.3s ease-in-out;
@@ -35,23 +37,33 @@
   }
 }
 
-/* Media Queries */
+/* media querie for responsiveness*/
 @include respond-to(sm) {
   .home-title {
-    font-size: 2rem;
+    font-size: 2rem; /* title size for small screens*/
   }
 
   .image-container {
-    max-width: 100%;
+    max-width: 100%; /* width for small screens*/
   }
 }
 
 @include respond-to(md) {
   .home-title {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /*title size for medium screens */
   }
 
   .image-container {
-    max-width: 80%;
+    max-width: 80%; 
+  }
+}
+
+@include respond-to(lg) {
+  .home-title {
+    font-size: 2.8rem; /* title size for big screens */
+  }
+
+  .image-container {
+    max-width: 900px;
   }
 }

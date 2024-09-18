@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './index.scss';  // Assure-toi d'importer le fichier SCSS
+import './index.scss';  
 
 function DogBreedSearch() {
   const [breed, setBreed] = useState('');
   const [breedImages, setBreedImages] = useState([]);
-
+//api fecth 
   const handleSearch = () => {
     fetch(`https://dog.ceo/api/breed/${breed}/images`)
       .then((response) => response.json())
@@ -14,7 +14,7 @@ function DogBreedSearch() {
 
   return (
     <div className="breed-search">
-      <h2>Search Dog by Breed</h2>
+      <h2 className="search"> Find your favourite Dog breed!</h2>
       <input
         type="text"
         placeholder="Enter breed (e.g., hound)"
@@ -23,7 +23,6 @@ function DogBreedSearch() {
         className="search-input"
       />
       <button onClick={handleSearch} className="search-button">Search</button>
-
       <div className="grid-container">
         {breedImages.map((image, index) => (
           <div className="card" key={index}>

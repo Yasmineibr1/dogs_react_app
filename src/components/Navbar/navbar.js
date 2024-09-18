@@ -1,31 +1,45 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './navbar.scss'; 
-
+import './navbar.scss';
+import logo from '../../assets/logo.png';
 function Navbar() {
-  const [isMenuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setMenuOpen(false);
+  //State to know if the mobile menu is open or closed
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+ //Function to toggle the mobile menu open and closed
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
-    <nav className="navbar">
-      <div className="navbar-logo">
-        <Link to="/">Logo</Link>
+    <nav>
+      <div className="navbar-container">
+        <div className="logo">
+          <Link to="/">
+            <img src={logo} alt="Logo" />
+          </Link>
+        </div>
+
+        {/* navigation links for big screens */}
+        <div className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/gallery">Dog Gallery</Link>
+          <Link to="/breedsearch">Dog Breed Search</Link>
+        </div>
+
+        {/* Hhamburger menu on small screens*/}
+        <div className="hamburger-menu" onClick={toggleMobileMenu}>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+        </div>
+
+        {/* hamburger menu displayed only on small/mobile screens*/}
+        <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+          <Link to="/" onClick={toggleMobileMenu}>Home</Link>
+          <Link to="/gallery" onClick={toggleMobileMenu}>Dog Gallery</Link>
+          <Link to="/breedsearch" onClick={toggleMobileMenu}>Dog Breed Search</Link>
+        </div>
       </div>
-      <button className="navbar-menu" onClick={toggleMenu}>
-        &#9776; {/* Icône du menu hamburger */}
-      </button>
-      <ul className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
-        <li><Link to="/" onClick={closeMenu}>Home</Link></li>
-        <li><Link to="/gallery" onClick={closeMenu}>Dog Gallery</Link></li>
-        <li><Link to="/breedsearch" onClick={closeMenu}>Breed Search</Link></li>
-      </ul>
     </nav>
   );
 }

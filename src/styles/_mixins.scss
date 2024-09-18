@@ -1,29 +1,43 @@
 
+// Mixin to apply border-radius with a customizable radius value
 @mixin border-radius($radius) {
-  border-radius: $radius;
+  border-radius: $radius; // Sets the border-radius to the passed value
 }
 
+// Mixin to apply a transition effect with customizable property, duration, and timing function
 @mixin transition($property, $duration, $timing-function) {
-  transition: $property $duration $timing-function;
+  transition: $property $duration $timing-function; // Defines the transition effect for the property
 }
 
-// Mixin pour les media queries
+// Mixin for responsive breakpoints to apply styles based on screen size
 @mixin respond-to($breakpoint) {
+  // Check if the passed breakpoint is 'sm' (small screen)
   @if $breakpoint == sm {
+    // Media query for screens smaller than the small breakpoint
     @media (max-width: $breakpoint-sm) {
-      @content;
+      @content; // Insert styles for small screens here
     }
-  } @else if $breakpoint == md {
+  } 
+  // Check if the passed breakpoint is 'md' (medium screen)
+  @else if $breakpoint == md {
+    // Media query for screens smaller than the medium breakpoint
     @media (max-width: $breakpoint-md) {
-      @content;
+      @content; // Insert styles for medium screens here
     }
-  } @else if $breakpoint == lg {
+  }
+  // Check if the passed breakpoint is 'lg' (large screen)
+  @else if $breakpoint == lg {
+    // Media query for screens smaller than the large breakpoint
     @media (max-width: $breakpoint-lg) {
-      @content;
+      @content; // Insert styles for large screens here
     }
-  } @else if $breakpoint == xl {
+  }
+  // Check if the passed breakpoint is 'xl' (extra-large screen)
+  @else if $breakpoint == xl {
+    // Media query for screens smaller than the extra-large breakpoint
     @media (max-width: $breakpoint-xl) {
-      @content;
+      @content; // Insert styles for extra-large screens here
     }
   }
 }
+

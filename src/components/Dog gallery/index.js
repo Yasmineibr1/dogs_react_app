@@ -3,7 +3,7 @@ import './index.scss';
 
 function DogGallery() {
   const [dogImages, setDogImages] = useState([]);
-
+ //api fetch
   useEffect(() => {
     fetch('https://dog.ceo/api/breeds/image/random/8')
       .then((response) => response.json())
@@ -12,7 +12,7 @@ function DogGallery() {
 
   return (
     <div className="dog-gallery">
-      <h2>Dog Gallery</h2>
+      <h2 className="gallery-title">Dogs Gallery!</h2>
       <div className="grid-container">
         {dogImages.map((image, index) => (
           <div className="card" key={index}>
