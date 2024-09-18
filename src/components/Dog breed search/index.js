@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './index.scss';  // Assure-toi d'importer le fichier SCSS
 
 function DogBreedSearch() {
   const [breed, setBreed] = useState('');
@@ -12,19 +13,22 @@ function DogBreedSearch() {
   };
 
   return (
-    <div>
+    <div className="breed-search">
       <h2>Search Dog by Breed</h2>
       <input
         type="text"
         placeholder="Enter breed (e.g., hound)"
         value={breed}
         onChange={(e) => setBreed(e.target.value.toLowerCase())}
+        className="search-input"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch} className="search-button">Search</button>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginTop: '20px' }}>
+      <div className="grid-container">
         {breedImages.map((image, index) => (
-          <img key={index} src={image} alt="Breed" style={{ width: '100%' }} />
+          <div className="card" key={index}>
+            <img src={image} alt="Breed" className="breed-image" />
+          </div>
         ))}
       </div>
     </div>
