@@ -16,7 +16,7 @@ function DogGallery() {
       <div className="grid-container">
         {dogImages.map((image, index) => (
           <div className="card" key={index}>
-            <img src={image} alt="Dog" className="dog-image" />
+            <img src={image} alt="Dog image" className="dog-image" />
           </div>
         ))}
       </div>
