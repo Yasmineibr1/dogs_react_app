@@ -1,37 +1,63 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
+@import '../../styles/queries';
+
 .dog-gallery {
-    text-align: center;
-    padding: 20px;
-  
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-  
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
-      padding: 10px;
-    }
-  
-    .card {
-      background: $primary-color;
-      border: 1px solid;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-  
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
-  
-    .dog-image {
-      width: 100%;
-      height: auto;
-      display: block;
+  text-align: center;
+  padding: 20px;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+
+    // Réduction de la taille des titres sur les petits écrans
+    @media (max-width: $breakpoint-sm) {
+      font-size: 1.5rem;
     }
   }
-  
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 10px;
+
+    // Ajustement de la grille pour les petits et moyens écrans
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+  }
+
+  .card {
+    background: $primary-color;
+    border: 1px solid;
+    
+    // Utilisation du mixin border-radius
+    @include border-radius(8px);
+    
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    // Utilisation du mixin transition
+    @include transition(transform, 0.3s, ease);
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    // Réduction de la taille des cartes sur les petits écrans
+    @media (max-width: $breakpoint-sm) {
+      padding: 10px;
+    }
+  }
+
+  .dog-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
